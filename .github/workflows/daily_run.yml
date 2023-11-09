@@ -4,11 +4,11 @@ on:
     - cron: "0 8 * * *"
   workflow_call:
     inputs:
-    LoggingMode:
-      description: 'Enable logging mode only'
-      type: boolean
-      required: true
-      default: 'True'
+      LoggingMode:
+        description: 'Enable logging mode only'
+        type: boolean
+        required: true
+        default: 'True'
 
   workflow_dispatch:
     inputs:
