@@ -14,7 +14,11 @@ on:
         type: string
         required: true
         default: 'sg-rules-moon'
-
+      Region:
+        description: 'AWS Region'
+        type: string
+        required: true
+        default: 'us-east-1'
 
   workflow_dispatch:
     inputs:
@@ -28,6 +32,11 @@ on:
         type: string
         required: true
         default: 'sg-rules-moon'
+      Region:
+        description: 'AWS Region'
+        type: string
+        required: true
+        default: 'us-east-1'
 
 jobs:
   Pull_and_run_latest:
@@ -41,6 +50,6 @@ jobs:
       - name: docker image pull
         run: docker pull maordockr89/sg_rule_logger:latest
       - name: docker container run
-        run:  docker run -e LOGGING_MODE=${{github.event.inputs.LoggingMode}} -e S3_BUCKET_NAME=${{github.event.inputs.S3bucket}} -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  -e AWS_SESSION_TOKEN=${{ secrets.AWS_SESSION_TOKEN }} --rm maordockr89/sg_rule_logger:latest
+        run:  docker run -e REGION=${{github.event.inputs.Region}} -e LOGGING_MODE=${{github.event.inputs.LoggingMode}} -e S3_BUCKET_NAME=${{github.event.inputs.S3bucket}} -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  -e AWS_SESSION_TOKEN=${{ secrets.AWS_SESSION_TOKEN }} --rm maordockr89/sg_rule_logger:latest
        
   
