@@ -50,6 +50,12 @@ jobs:
       - name: docker image pull
         run: docker pull maordockr89/sg_rule_logger:latest
       - name: docker container run
-        run:  docker run -e REGION=${{github.event.inputs.Region}} -e LOGGING_MODE=${{github.event.inputs.LoggingMode}} -e S3_BUCKET_NAME=${{github.event.inputs.S3bucket}} -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}  -e AWS_SESSION_TOKEN=${{ secrets.AWS_SESSION_TOKEN }} --rm maordockr89/sg_rule_logger:latest
-       
+        run:  docker run -e REGION -e LOGGING_MODE -e S3_BUCKET_NAME -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY  -e AWS_SESSION_TOKEN --rm maordockr89/sg_rule_logger:latest
+        env:
+          REGION: ${{github.event.inputs.Region}}
+          LOGGING_MODE: ${{github.event.inputs.LoggingMode}}
+          S3_BUCKET_NAME: ${{github.event.inputs.S3bucket}}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
   
