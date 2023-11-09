@@ -2,6 +2,14 @@ name: Daily Workflow
 on:
   schedule:
     - cron: "0 8 * * *"
+  workflow_dispatch:
+    inputs:
+      LoggingMode:
+        description: 'Enable logging mode only'
+        type: boolean
+        required: true
+        default: 'True'
+
 jobs:
   Build_latest:
     runs-on: ubuntu-latest
