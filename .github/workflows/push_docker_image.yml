@@ -18,8 +18,4 @@ jobs:
         with:
           push: true
           tags: maordockr89/sg_rule_logger:latest
-          build-args: |
-            S3_BUCKET_NAME=${{secrets.S3_BUCKET_NAME}}
-            AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}}
-            AWS_SECRET_ACCESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}}
-            AWS_SESSION_TOKEN=${{secrets.AWS_SESSION_TOKEN}}
+
