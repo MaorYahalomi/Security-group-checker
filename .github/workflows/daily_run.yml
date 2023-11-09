@@ -1,9 +1,10 @@
 name: Daily Workflow
 on:
   schedule:
-    - cron: "0 8 * * *"
+  - cron: "0 8 * * *"
   workflow_dispatch:
-  branches:
+  push:
+    branches:
       - master
     inputs:
       LoggingMode:
