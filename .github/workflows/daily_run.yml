@@ -30,6 +30,6 @@ jobs:
       - name: docker image pull
         run: docker pull maordockr89/sg_rule_logger:latest
       - name: docker container run
-        run:  docker run -it -e LOGGING_MODE=${{github.event.inputs.LoggingMode}} --rm maordockr89/sg_rule_logger:latest
+        run:  docker run -e LOGGING_MODE=${{github.event.inputs.LoggingMode}} --rm maordockr89/sg_rule_logger:latest
        
   
