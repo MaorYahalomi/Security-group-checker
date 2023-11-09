@@ -76,13 +76,16 @@ def main():
         print("Enforcement mode for rules is enabled.\n")
     try:
         response = ec2.describe_security_groups()
+        rules_found = False
         for sg in response['SecurityGroups']:
             list_of_rules_to_del, list_of_rules_log = check_sg_rule(sg)
             if len(list_of_rules_to_del) > 0:
+                rules_found = True
                 create_log_file(list_of_rules_log)
                 if not logging_mode():
                     revoke_sg_rule(sg, list_of_rules_to_del)
-        upload_log_to_s3(s3_bucket_name)
+        if rules_found:
+            upload_log_to_s3(s3_bucket_name)
     except ClientError as e:
         print(f"Unexpected error: {e}")
 
