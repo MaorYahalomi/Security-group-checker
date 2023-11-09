@@ -2,25 +2,9 @@ name: Daily Workflow
 on:
   schedule:
     - cron: "0 8 * * *"
-  workflow_call:
-    inputs:
-      LoggingMode:
-        description: 'Enable logging mode only'
-        type: boolean
-        required: true
-        default: 'True'
-      S3bucket:
-        description: 'S3 bucket name'
-        type: string
-        required: true
-        default: 'sg-rules-moon'
-      Region:
-        description: 'AWS Region'
-        type: string
-        required: true
-        default: 'us-east-1'
-
   workflow_dispatch:
+  branches:
+      - master
     inputs:
       LoggingMode:
         description: 'Enable logging mode only'
