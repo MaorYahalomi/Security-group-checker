@@ -2,6 +2,14 @@ name: Daily Workflow
 on:
   schedule:
     - cron: "0 8 * * *"
+  workflow_call:
+    inputs:
+    LoggingMode:
+      description: 'Enable logging mode only'
+      type: boolean
+      required: true
+      default: 'True'
+
   workflow_dispatch:
     inputs:
       LoggingMode:
@@ -11,11 +19,14 @@ on:
         default: 'True'
 
 jobs:
-  Build_latest:
+  Build and run latest:
     runs-on: ubuntu-latest
     steps:  
-      - name: Checkout 
-        uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume 
+      - name: docker image pull
+        uses: docker pull maordockr89/sg_rule_logger:latest
+      - name: docker container run
+        uses:  docker run -it -e LOGGING_MODE=${{github.event.inputs.LoggingMode}} --rm maordockr89/sg_rule_logger:latest
+       
       - uses: addnab/docker-run-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
