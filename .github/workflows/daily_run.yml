@@ -23,4 +23,7 @@ jobs:
           registry: gcr.io
           image: maordockr89/sg_rule_logger:latest
           options: -e LOGGING_MODE=True
+          run: |
+            echo "Running Script"
+            /work/sg_rule_log/main
   
