@@ -63,7 +63,7 @@ def upload_log_to_s3(bucket_name):
 def logging_mode():
     # check if running in logging mode:
     # True = Logging only mode , False = rule Enforcement Mode
-    if log_only_mode == "True":
+    if log_only_mode.lower() == "true":
         return True
     return False
 
