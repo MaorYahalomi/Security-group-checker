@@ -82,15 +82,13 @@ def main():
                 create_log_file(list_of_rules_log)
                 if not logging_mode():
                     revoke_sg_rule(sg, list_of_rules_to_del)
-                # print(list_of_ruls_log)
-            # print(f"{sg['GroupId']} {sg['VpcId']}")
         upload_log_to_s3(s3_bucket_name)
     except ClientError as e:
         print(f"Unexpected error: {e}")
 
 
 
-# main()
-print(log_only_mode)
+main()
+# print(log_only_mode)
 
 
