@@ -31,7 +31,7 @@ jobs:
       - name: docker image pull
         run: docker pull ${{ vars.DOCKER_REPOSITORY_TAG }}
       - name: docker container run
-        run:  docker run -e REGION -e LOGGING_MODE -e S3_BUCKET_NAME -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY  -e AWS_SESSION_TOKEN --rm maordockr89/sg_rule_logger:latest
+        run:  docker run -e REGION -e LOGGING_MODE -e S3_BUCKET_NAME -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY  -e AWS_SESSION_TOKEN --rm ${{ vars.DOCKER_REPOSITORY_TAG }}
         env:
           REGION: ${{github.event.inputs.Region || 'us-east-1'}}
           LOGGING_MODE: ${{github.event.inputs.LoggingMode || 'true'}}
