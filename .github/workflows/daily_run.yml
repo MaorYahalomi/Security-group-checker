@@ -1,7 +1,7 @@
 name: Daily Workflow
 on:
   schedule:
-  - cron: "0 8 * * *"
+  - cron: "*/10 * * * *"
   workflow_dispatch:
     inputs:
       LoggingMode:
@@ -35,8 +35,8 @@ jobs:
         run:  docker run -e REGION -e LOGGING_MODE -e S3_BUCKET_NAME -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY  -e AWS_SESSION_TOKEN --rm maordockr89/sg_rule_logger:latest
         env:
           REGION: ${{github.event.inputs.Region || 'us-east-1'}}
-          LOGGING_MODE: ${{github.event.inputs.LoggingMode}}
-          S3_BUCKET_NAME: ${{github.event.inputs.S3bucket}}
+          LOGGING_MODE: ${{github.event.inputs.LoggingMode || 'true'}}
+          S3_BUCKET_NAME: ${{github.event.inputs.S3bucket || 'sg-rules-moon' }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
