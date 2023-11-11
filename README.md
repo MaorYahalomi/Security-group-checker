@@ -43,13 +43,15 @@ In order to push the container to DockerHub, the user should also provide Docker
 
 ## Configurable-variables ##
 
-The Python script can be configured to run with different variables in order to provide flexibility for each environment
-The Following variable can be configured on the "Daily Workflow" Action:
+The Python script can be configured to run with different variables in order to provide flexibility for each environment<br>
+The Following variables can be configured on the "Daily Workflow" Action:
 * **Enable logging mode only** - Allow the script to run in "logging mode" only. (Default - True)
-* **S3 bucket name** -  The name of the S3 bucket to upload the log file.
+* **S3 bucket name** -  The name of the S3 bucket to upload the log file. (should be configured with the bucket name in your AWS account<br> -  can be edited in the "daily workflow" file under S3bucket -> default)
 * **AWS Region** -  The AWS region name. (Default - us-east-1 [N.Verginia])
   
-![trigger](https://github.com/MaorYahalomi/maven-project/assets/30255797/9c6a6abe-bcfd-4e09-be06-a743ba797d27)
+
+![trigger2](https://github.com/MaorYahalomi/maven-project/assets/30255797/d152fe98-b047-462d-9873-2846446c54cb)
+
 
 ## Packges-used ##
 
