@@ -19,5 +19,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: maordockr89/sg_rule_logger:latest
+          tags: ${{ vars.DOCKER_REPOSITORY_TAG }}
+          
 
