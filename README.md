@@ -6,19 +6,18 @@
 - [GitHub Workflows](#GitHub-Workflows )
 - [Prerequisites](#Prerequisites )
 - [Configurable-variables](#Configurable-variables )
-- [How To Use](#how-to-use )
-  * [Running Manually Using Python](#running-manually-using-python)
-  * [Using Docker container](#using-docker-container)
+- [Packges used](#Packges-used )
+- [Supported Cloud Providers](#Supported-Cloud-Providers )
 
 ## Description ##
 Security Group Open Rule Checker is an open-source tool written in Python that allows a cloud administrator to verify<br>
 If there is any rule in the Security Group that allows access from the internet.<br>
 The tool can be configured in 2 modes:<br>
-1. **Logging Mode only** - Which only stores all the security groups that have access to the world in a log file in an S3 bucket.<br>
-2. **Rule Enforcement mode** - Which removes automatically any security groups rules that are opened to the world and store the results in S3 as well.
+1. **Logging Mode only** - Stores all the security groups id's that have access from the internet in a log file in an S3 bucket.<br>
+2. **Rule Enforcement mode** - Removes automatically any security groups rules that are opened to the world and store the results in S3 as well.
 
 ## GitHub Workflows ##
-There are two main workflows that are configured to run wh
+There are two main workflows that are configured to run when each of the following events occurs:
 1.  **Docker Build and Push** - Triggered each time there is a change in the code and push to the main branch, build a docker container,<br> and push the image to DockerHub.
 2.  **Daily workflow** - Runs the script every day at 8 AM.
 
@@ -52,4 +51,12 @@ The Following variable can be configured on the "Daily Workflow" Action:
   
 ![trigger](https://github.com/MaorYahalomi/maven-project/assets/30255797/9c6a6abe-bcfd-4e09-be06-a743ba797d27)
 
+## Packges-used ##
 
+| Package  | Version |
+| ------------- | ------------- |
+| Boto3  | 1.28.80  |
+
+
+## Supported-Cloud-Providers ##
+* AWS
