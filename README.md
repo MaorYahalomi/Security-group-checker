@@ -40,13 +40,21 @@ In order to push the container to DockerHub, the user should also provide Docker
 #  DOCKER_USERNAME
 #  DOCKER_PASSWORD
 ```
+The Following variables should be configured as GitHub Repository variables:
+```
+#  DOCKER_REPOSITORY_TAG
+#  S3_BUCKET_NAME
+```
+* DOCKER_REPOSITORY_TAG - Update with your DockerHub Repository in order to push and pull the image.
+* S3_BUCKET_NAME - Update with the bucket name in your AWS account.
 
+  
 ## Configurable-variables ##
 
 The Python script can be configured to run with different variables in order to provide flexibility for each environment<br>
-The Following variables can be configured on the "Daily Workflow" Action:
+The Following variables can be configured on the "Daily Workflow" Action (using workflow_dispatch):
 * **Enable logging mode only** - Allow the script to run in "logging mode" only. (Default - True)
-* **S3 bucket name** -  The name of the S3 bucket to upload the log file. (should be configured with the bucket name in your AWS account<br> -  can be edited in the "daily workflow" file under S3bucket -> default)
+* **S3 bucket name** -  The name of the S3 bucket to upload the log file. (should be configured with the bucket name in your AWS account<br> -  can be edited in Github Variables configuration)
 * **AWS Region** -  The AWS region name. (Default - us-east-1 [N.Verginia])
   
 
