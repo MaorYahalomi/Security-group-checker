@@ -18,7 +18,7 @@ The tool can be configured in 2 modes:<br>
 
 ## GitHub Workflows ##
 There are two main workflows that are configured to run when each of the following events occurs:
-1.  **Docker Build and Push** - Triggered each time there is a change in the code and push to the main branch, build a docker container,<br> and push the image to DockerHub.
+1.  **Docker Build and Push** - Triggered each time there is a change in the code and push to the main branch, build a docker container, and push the image to DockerHub.
 2.  **Daily workflow** - Runs the script every day at 8 AM.
 
 ## Prerequisites ##
